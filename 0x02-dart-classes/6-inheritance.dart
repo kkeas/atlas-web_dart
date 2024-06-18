@@ -32,10 +32,7 @@ class User extends Password {
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, age: $age, height: $height, user_password: $user_password)';
-  }
-
-  bool isPasswordValid() {
-    return super.isValid();
+    final passwordString = isValid() ? 'Password is valid' : 'Password is invalid';
+    return 'User(id : $id ,name: $name, age: $age, height: $height, user_password: ${user_password ?? 'N/A'})  <==> $passwordString';
   }
 }
