@@ -25,7 +25,6 @@ Future<double> calculateTotal() async {
 
     return total;
   } catch (error) {
-    print('Error occurred: $error');
     return -1;
   }
 }
