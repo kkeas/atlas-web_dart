@@ -7,12 +7,9 @@ class User extends Password {
   String? name;
   int? age;
   double? height;
-  String? _user_password;
 
   User({this.id, this.name, this.age, this.height, String? user_password})
-      : super(password: user_password) {
-    this._user_password = user_password;
-  }
+      : super(password: user_password);
 
   Map<String, dynamic> toJson() {
     return {
@@ -40,8 +37,9 @@ class User extends Password {
 
   set user_password(String? value) {
     super.password = value;
-    _user_password = value;
   }
 
-  String? get user_password => _user_password;
+  String? get user_password {
+    return super.toString().split(': ')[1];
+  }
 }

@@ -30,4 +30,11 @@ class Password {
   set password(String? value) {
     _password = value;
   }
+
+  String? get password => _password;
+
+  @override
+  String toString() {
+    return 'Your Password is: $_password';
+  }
 }
