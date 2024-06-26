@@ -1,3 +1,5 @@
+// 6-inheritance.dart
+
 import '6-password.dart';
 
 class User extends Password {
@@ -5,10 +7,12 @@ class User extends Password {
   String? name;
   int? age;
   double? height;
-  String? user_password;
+  String? _user_password;
 
-  User({this.id, this.name, this.age, this.height, this.user_password})
-      : super(password: user_password);
+  User({this.id, this.name, this.age, this.height, String? user_password})
+      : super(password: user_password) {
+    this._user_password = user_password;
+  }
 
   Map<String, dynamic> toJson() {
     return {
@@ -16,7 +20,6 @@ class User extends Password {
       'name': name,
       'age': age,
       'height': height,
-      'user_password': user_password,
     };
   }
 
@@ -34,4 +37,11 @@ class User extends Password {
   String toString() {
     return 'User(id : $id ,name: $name, age: $age, height: $height, Password: ${isValid()})';
   }
+
+  set user_password(String? value) {
+    super.password = value;
+    _user_password = value;
+  }
+
+  String? get user_password => _user_password;
 }
